@@ -1,4 +1,11 @@
-part of 'pokemon_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class PokemonEvent {}
+abstract class PokemonEvent extends Equatable {
+  PokemonEvent([List props = const []]) : super(props);
+}
+
+class FetchDataPokemon extends PokemonEvent {
+  FetchDataPokemon({this.limit, this.offset});
+  final int limit;
+  final int offset;
+}
